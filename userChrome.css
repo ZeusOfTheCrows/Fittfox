@@ -25,15 +25,25 @@ visibility: visible !important;
 	/*width: 10em !important;*/
 }
 
-/* force window buttons to corner in gtk (ew negative margin) */
 @media (-moz-gtk-csd-available) {
-	:root[tabsintitlebar]:is([sizemode="maximized"], [sizemode="fullscreen"]) .titlebar-buttonbox {
+	/* force window buttons to corner in gtk (ew negative margin) */
+	:root[tabsintitlebar]:is([sizemode="maximized"],[sizemode="fullscreen"]) .titlebar-buttonbox {
 		-moz-box-align: start !important;
 		margin-right: -6px;
 	}
-}
 
-/* force menubar & window buttons to screen top */
-toolbar[type="menubar"] {
-	padding: 0 !important;
+	/* squish down titlebar */
+	:is(:root[tabsintitlebar]:is([sizemode="maximized"],[sizemode="fullscreen"])) #TabsToolbar, #toolbar-menubar {
+		--tab-min-height: 22px;
+	}
+
+	/* widen out tabbar buttons so they don't look squished */
+	:is(:root[tabsintitlebar]:is([sizemode="maximized"],[sizemode="fullscreen"])) #TabsToolbar .toolbarbutton-1 .toolbarbutton-icon {
+		margin-inline: 7px;
+	}
+
+	/* force menubar & window buttons to screen top */
+	toolbar[type="menubar"] {
+		padding: 0 !important;
+	}
 }
