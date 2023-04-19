@@ -5,18 +5,35 @@
 /** Add your custom styles below **********************************************/
 
 /* Enable option to edit bookmark URLs under Add Bookmark (blue star) menu */
-/*
- * #editBMPanel_locationRow {
- *   visibility: visible !important;
- * }
-*/
+#editBMPanel_locationRow {
+visibility: visible !important;
+}
 
 /* Disable Email Image/Audio/Video and Set as Desktop Background context menu items */
 /*
- * #context-sendimage,
- * #context-sendvideo,
- * #context-sendaudio,
- * #context-setDesktopBackground {
- *   display: none !important;
- * }
+#context-sendimage,
+#context-sendvideo,
+#context-sendaudio,
+#context-setDesktopBackground {
+	display: none !important;
+}
 */
+
+#sidebar-box {
+	min-width: 8em !important;
+	max-width: 36em;
+	/*width: 10em !important;*/
+}
+
+/* force window buttons to corner in gtk (ew negative margin) */
+@media (-moz-gtk-csd-available) {
+	:root[tabsintitlebar]:is([sizemode="maximized"], [sizemode="fullscreen"]) .titlebar-buttonbox {
+		-moz-box-align: start !important;
+		margin-right: -6px;
+	}
+}
+
+/* force menubar & window buttons to screen top */
+toolbar[type="menubar"] {
+	padding: 0 !important;
+}
